@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../libs/react.js"></script>
+    <script src="../../libs/react-dom.js"></script>
+    <script src="../../libs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var MyBtn = React.createClass({
+            getInitialState: function () {
+                return {
+                    a: false,
+                    b: false
+                };
+            },
+            myChange: function () {
+                this.setState({a: !this.state.a});
+                this.setState({b: !this.state.b});
+            },
+            render: function () {
+                var text1 = !!this.state.a ? "hahaha" : "hehehe",
+                    text2 = !!this.state.b ? "shit" : "fuck";
+                return (
+                    <div>
+                        <p>{text1}, you are a big {text2}!</p>
+                        <button onClick={this.myChange}>点我点我点我！</button>
+                    </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <MyBtn />,
+            document.getElementById("example")
+        );
+    </script>
+</body>
+</html>

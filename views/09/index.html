@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../libs/react.js"></script>
+    <script src="../../libs/react-dom.js"></script>
+    <script src="../../libs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var MyInput = React.createClass({
+            initName: "ze.su",
+            getInitialState: function () {
+                return {
+                    value:  this.initName
+                };
+            },
+            myChange: function (e) {
+                this.setState({value: e.target.value})
+            },
+            render: function () {
+                var value = this.state.value;
+                return (
+                    <div>
+                        <input type="text" onChange={this.myChange} value={value} />
+                        <p>Hello, {value}</p>
+                    </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <MyInput />,
+            document.getElementById("example")
+        );
+    </script>
+</body>
+</html>

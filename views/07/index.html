@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../libs/react.js"></script>
+    <script src="../../libs/react-dom.js"></script>
+    <script src="../../libs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var MyComponent = React.createClass({
+            myClick: function () {
+                console.log(this.refs.myTextInput);
+                console.log(this.refs.myTextInput.value);
+            },
+            render: function () {
+                return (
+                    <div>
+                        <input type="text" ref="myTextInput" />
+                        <input type="button" value="点我点我点我！" onFocus={this.myClick} />
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <MyComponent />,
+            document.getElementById("example")
+        );
+    </script>
+</body>
+</html>
